@@ -6,10 +6,18 @@ const peopleThatHaveUsedAlarm = [
   { name: "Lisa", wakeUpTime: 6 }
 ];
 
-function getAlarmUserFirstName(name) {
-  let firstNames = [];
-  name.map(firstNames.push(name["name"]))
-  return firstNames;
+function getAlarmUserFirstName(peopleThatHaveUsedAlarm) {
+  
+  const blah = []
+  
+  peopleThatHaveUsedAlarm.map(function(nam){
+    
+    blah.push(nam["name"]);
+  
+    
+  });
+
+  return blah;
 }
 
 
