@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-const peopleThatHaveUsedAlarm = [
+const alarmUsers = [
   { name: "James", wakeUpTime: 7 },
   { name: "Susan", wakeUpTime: 13 },
   { name: "Geoff", wakeUpTime: 14 },
@@ -43,6 +43,18 @@ function getWakeUpTimes(peopleThatHaveUsedAlarm){
 
   });
   return blah;
+}
+
+function getEarlyRisers(alarmUsers) {
+
+  alarmUsers =  alarmUsers.filter(function(name){
+  if (name.wakeUpTime < 9){
+    return true;
+    }else {
+      return false
+    }
+  });
+  return alarmUsers
 }
 
 function wakeup(currentTime) {
@@ -89,5 +101,6 @@ module.exports = {
   wakeup,
   snooze,
   getAlarmUserFirstName,
-  getWakeUpTimes
+  getWakeUpTimes,
+  getEarlyRisers
 };

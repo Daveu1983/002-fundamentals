@@ -49,6 +49,20 @@ test('add an hr to wake up times and return array of strings of names and wake u
     "Lisa wakes up at 7am"];
   expect(alarm.getWakeUpTimes(peopleThatHaveUsedAlarm)).toEqual(expectedWakeUpTimes)
 });  
+
+test('people for pay rises', () => {
+  const peopleThatHaveUsedAlarm = [
+    { name: "James", wakeUpTime: 7 },
+    { name: "Susan", wakeUpTime: 13 },
+    { name: "Geoff", wakeUpTime: 14 },
+    { name: "Lisa", wakeUpTime: 6 }
+  ];
+  const expectedPeople = [
+    { name: "James", wakeUpTime: 7 },
+    { name: "Lisa", wakeUpTime: 6 }
+];
+  expect(alarm.getEarlyRisers(peopleThatHaveUsedAlarm)).toEqual(expectedPeople)
+});  
   
 test('Snoozing for a set amount', () => {
   expect(alarm.snooze()).toBe(20);
