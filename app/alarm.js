@@ -20,20 +20,30 @@ function getAlarmUserFirstName(peopleThatHaveUsedAlarm) {
   return blah;
 }
 
+function getWakeUpTimes(peopleThatHaveUsedAlarm){
 
-/*function wakeup(currentTime) {
-  // currentTime will be a Javascript Date object
-  // https://www.w3schools.com/jsref/jsref_obj_date.asp
-  const currentHour = currentTime.getHours();
+  const blah = []
 
-  if (currentHour >= 12 && currentHour <=14)  {
-    return "Yessssss its lunch time!!!";
-  } else if (currentHour > 14) {
-    return "Get up!! You're wasting the day";
-  } else {
-    return "Ugggggh its too early - I'm not waking up yet";
-  }
-}*/
+  peopleThatHaveUsedAlarm.map(function(nam){
+    let time;
+    let amOrPm;
+
+    if(nam.wakeUpTime === 12){
+      time = nam.wakeUptime;
+      amOrPm = "pm";
+    }else if (nam.wakeUpTime < 12){
+      time = nam.wakeUpTime 
+      amOrPm = "am"
+    }else{
+      time = nam.wakeUpTime - 12
+      amOrPm = "pm"
+    }
+
+    blah.push(nam["name"] +  " wakes up at " + (time +1) + amOrPm)
+
+  });
+  return blah;
+}
 
 function wakeup(currentTime) {
     // currentTime will be a Javascript Date object
@@ -78,5 +88,6 @@ function snooze() {
 module.exports = {
   wakeup,
   snooze,
-  getAlarmUserFirstName
+  getAlarmUserFirstName,
+  getWakeUpTimes
 };
