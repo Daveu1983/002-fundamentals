@@ -8,21 +8,21 @@ const alarmUsers = [
 
 function getAlarmUserFirstName(peopleThatHaveUsedAlarm) {
   
-  const blah = []
+  const alarmUsers = []
   
   peopleThatHaveUsedAlarm.map(function(nam){
     
-    blah.push(nam["name"]);
+    alarmUsers.push(nam["name"]);
   
     
   });
 
-  return blah;
+  return alarmUsers;
 }
 
 function getWakeUpTimes(peopleThatHaveUsedAlarm){
 
-  const blah = []
+  const alarmUsers = []
 
   peopleThatHaveUsedAlarm.map(function(nam){
     let time;
@@ -39,10 +39,10 @@ function getWakeUpTimes(peopleThatHaveUsedAlarm){
       amOrPm = "pm"
     }
 
-    blah.push(nam["name"] +  " wakes up at " + (time +1) + amOrPm)
+    alarmUsers.push(nam["name"] +  " wakes up at " + (time +1) + amOrPm)
 
   });
-  return blah;
+  return alarmUsers;
 }
 
 function getEarlyRisers(alarmUsers, ceoTimeChosen) {
