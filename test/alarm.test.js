@@ -49,8 +49,8 @@ test('add an hr to wake up times and return array of strings of names and wake u
     "Lisa wakes up at 7am"];
   expect(alarm.getWakeUpTimes(peopleThatHaveUsedAlarm)).toEqual(expectedWakeUpTimes)
 });  
-
-test('people for pay rises', () => {
+ 
+test('people for pay rises, CEO picks the time', () => {
   const peopleThatHaveUsedAlarm = [
     { name: "James", wakeUpTime: 7 },
     { name: "Susan", wakeUpTime: 13 },
@@ -59,10 +59,35 @@ test('people for pay rises', () => {
   ];
   const expectedPeople = [
     { name: "James", wakeUpTime: 7 },
+    { name: "Susan", wakeUpTime: 13 },
     { name: "Lisa", wakeUpTime: 6 }
 ];
-  expect(alarm.getEarlyRisers(peopleThatHaveUsedAlarm)).toEqual(expectedPeople)
+  expect(alarm.getEarlyRisers(peopleThatHaveUsedAlarm, 14)).toEqual(expectedPeople)
 });  
+
+test('people for pay rises, CEO picks the time', () => {
+  const peopleThatHaveUsedAlarm = [
+    { name: "James", wakeUpTime: 7 },
+    { name: "Susan", wakeUpTime: 13 },
+    { name: "Geoff", wakeUpTime: 14 },
+    { name: "Lisa", wakeUpTime: 6 }
+  ];
+  const expectedPeople = [
+    { name: "Lisa", wakeUpTime: 6 }
+];
+  expect(alarm.getEarlyRisers(peopleThatHaveUsedAlarm, 7)).toEqual(expectedPeople)
+}); 
+
+test('people for pay rises, CEO picks the time', () => {
+  const peopleThatHaveUsedAlarm = [
+    { name: "James", wakeUpTime: 7 },
+    { name: "Susan", wakeUpTime: 13 },
+    { name: "Geoff", wakeUpTime: 14 },
+    { name: "Lisa", wakeUpTime: 6 }
+  ];
+  const expectedPeople = [];
+  expect(alarm.getEarlyRisers(peopleThatHaveUsedAlarm, 6)).toEqual(expectedPeople)
+}); 
   
 test('Snoozing for a set amount', () => {
   expect(alarm.snooze()).toBe(20);

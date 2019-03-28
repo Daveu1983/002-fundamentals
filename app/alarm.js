@@ -45,10 +45,10 @@ function getWakeUpTimes(peopleThatHaveUsedAlarm){
   return blah;
 }
 
-function getEarlyRisers(alarmUsers) {
+function getEarlyRisers(alarmUsers, ceoTimeChosen) {
 
   alarmUsers =  alarmUsers.filter(function(name){
-  if (name.wakeUpTime < 9){
+  if (name.wakeUpTime < ceoTimeChosen){
     return true;
     }else {
       return false
